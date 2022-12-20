@@ -1,5 +1,5 @@
 # algorithm 공부하기
-[Day1] 22년 10월 10일 월요일  
+[Day1] 22년 12월 20일 화요일  
 * GitHub repository 만들기 
-* 2309 문제 풀기
+* c++ 연습하기
 
