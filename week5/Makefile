@@ -7,7 +7,8 @@ OBJS = $(SOURCE).o
 $(TARGET): $(OBJS)
 	$(CC) -o $@ $(OBJS)
 
-main.o: $(SOURCE).cpp
+$(SOURCE).o: $(SOURCE).cpp
+# main.o: $(SOURCE).cpp
 
 clean:
 	rm -f *.o
