@@ -32,7 +32,7 @@ void rotate1b(int r, int c, int s) {
     return;
 }
 
-int get_Max() {
+int get_mn() {
     int mn=99999999;
     for(int i=0; i<n; i++) {
         int sum=0;
@@ -65,7 +65,7 @@ int main() {
     //     }
     //     cout << "\n";
     // }
-    cout << get_Max()<< "\n";
+    cout << get_mn()<< "\n";
 }
 
 /* inputs
@@ -85,5 +85,13 @@ int main() {
 3 4 5 1 1 1
 9 3 2 1 4 3
 3 4 2
+4 2 1
+
+5 6 1
+1 2 3 2 5 6
+3 8 7 2 1 3
+8 2 3 1 4 5
+3 4 5 1 1 1
+9 3 2 1 4 3
 4 2 1
 */
