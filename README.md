@@ -6,6 +6,11 @@ https://github.com/originalkyu/algorithm/wiki
 * Iterator
 * vector
 
+* lambda
+* list comprehension
+* strict weak ordering
+
+
 ## Week5
 ### 개념정리
 * 그리디
