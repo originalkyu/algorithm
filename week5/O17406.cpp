@@ -4,60 +4,75 @@ https://www.acmicpc.net/problem/17406
 #include <iostream>
 #include <cstring> // memcpy()
 #include <algorithm> // max()
+#include <vector>
 using namespace std;
 
-int a[54][54];
+struct rot {
+    int r,c,s;
+};
+
+int in[54][54];
+int in_rot[54][54];
 int n,m,k;
 int _r, _s, _c;
-
+vector<int> v_idx;
+vector<rot> v;
+int mn = 987654321;
 
 
 void rotate1b(int r, int c, int s) {
     if(s==0) return;
     // down right up  left
-    int temp = a[r-s][c-s];
+    int temp = in_rot[r-s][c-s];
     for(int i=r-s; i< r+s; i++) {// (r+s-1)-(r-s)+1=2s
-        a[i][c-s] = a[i+1][c-s];
+        in_rot[i][c-s] = in_rot[i+1][c-s];
     }
     for(int i=c-s; i<c+s; i++) {
-        a[r+s][i] = a[r+s][i+1];
+        in_rot[r+s][i] = in_rot[r+s][i+1];
     }
     for(int i=r+s; i>r-s; i--) {
-        a[i][c+s] = a[i-1][c+s];
+        in_rot[i][c+s] = in_rot[i-1][c+s];
     }
     for(int i=c+s; i>c-s; i--) {
-        a[r-s][i] = a[r-s][i-1];
+        in_rot[r-s][i] = in_rot[r-s][i-1];
     }
-    a[r-s][c-s+1]=temp;
+    in_rot[r-s][c-s+1]=temp;
     return;
 }
 
-int get_mn() {
-    int mn=99999999;
+void get_mn() {
     for(int i=0; i<n; i++) {
         int sum=0;
         for(int j=0; j<m; j++) {
-            sum+=a[i][j];
+            sum+=in_rot[i][j];
         }
         mn = min(mn, sum);
     }
-    return mn;
 }
 
 int main() {
     cin >> n >> m >> k;
     for(int i=0; i<n; i++) {
         for(int j=0; j<m; j++) {
-            cin >> a[i][j];
+            cin >> in[i][j];
         }
     }
     for(int i=0; i<k; i++) {
         cin >> _r >> _c >> _s;
-        while(_s > 0 ) {
-            rotate1b(_r-1, _c-1, _s);
-            _s--;
-        }
+        v.push_back({_r-1, _c-1, _s});
+        v_idx.push_back(i);
     }
+
+    do {
+        memcpy(in_rot, in, sizeof(in_rot));
+        for(int idx : v_idx) {
+            int cnt = v[idx].s;
+            while(cnt) rotate1b(v[idx].r, v[idx].c, cnt--);
+        }
+        get_mn();
+    } while(next_permutation(v_idx.begin(), v_idx.end()));
+
+
 
     // for(int i=0; i<n; i++) {
     //     for(int j=0; j<m; j++) {
@@ -65,7 +80,7 @@ int main() {
     //     }
     //     cout << "\n";
     // }
-    cout << get_mn()<< "\n";
+    cout << mn << "\n";
 }
 
 /* inputs
