@@ -19,6 +19,7 @@ vector<int> v_idx;
 vector<rot> v;
 int mn = 987654321;
 
+vector<rtInfo> v;
 
 void rotate1b(int r, int c, int s) {
     if(s==0) return;

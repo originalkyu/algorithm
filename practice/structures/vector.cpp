@@ -10,13 +10,14 @@ int main() {
         vector declaration and initialize
         내가 이용할 방법:
             sixth, seventh, eighth
+        https://stackoverflow.com/questions/2236197/what-is-the-easiest-way-to-initialize-a-stdvector-with-hardcoded-elements
     */ 
     vector<int> first;
     vector<int> second (4,100); // four ints with value 100
     vector<int> third (second.begin(), second.end()); // iterating
     vector<int> fourth (third); // a copy of third
-    vector<int> fifth{11, 23, 26, 30};
-    vector<int> sixth = {1,2,3,4,5};
+    vector<int> fifth{11, 23, 26, 30}; // c++ 11
+    vector<int> sixth = {1,2,3,4,5}; // c++ 11
     vector<int> seventh = vector<int>();
     vector<vector<int>> eighth = vector(7, vector<int>(7,0));
 
