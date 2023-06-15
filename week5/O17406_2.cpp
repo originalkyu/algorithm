@@ -22,6 +22,7 @@ void rotateAll(int y, int x, int cnt) {
         sx = x - 1*i;
         ey = y + 1*i;
         ex = x + 1*i;
+        
     }
 }
 

@@ -10,7 +10,6 @@ int n,cnt, mn=1987654321, mx=-1987654321;
 int arr[12];
 char opers[] = {'+','-','*','/'};
 vector<char> v;
-
 int cal(int n1, int n2, char oper) {
     switch(oper) {
         case '+':
@@ -36,10 +35,11 @@ int main() {
         for(int j=0; j<cnt; j++) v.push_back(opers[i]);
     }
 
+    sort(v.begin(), v.end());
     do {
         int ret = arr[0];
-        for(unsigned int i=1; i<v.size(); i++) {
-            ret = cal(ret,arr[i], v[i-1]);
+        for(unsigned int i=0; i<v.size(); i++) {
+            ret = cal(ret,arr[i+1], v[i]);
         }
         mn = min(mn, ret);
         mx = max(mx, ret);
