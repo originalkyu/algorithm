@@ -1,7 +1,7 @@
 CC = g++
 CXXFLAGS = -std=c++17 -Wall
 TARGET = main.out
-SOURCE = U15685
+SOURCE = W1912
 OBJS = $(SOURCE).o
 
 $(TARGET): $(OBJS)
