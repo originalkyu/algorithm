@@ -1,7 +1,7 @@
 CC = g++
 CXXFLAGS = -std=c++17 -Wall
 TARGET = main.out
-SOURCE = _Lec_ex3_answer
+SOURCE = C6236
 OBJS = $(SOURCE).o
 
 $(TARGET): $(OBJS)
