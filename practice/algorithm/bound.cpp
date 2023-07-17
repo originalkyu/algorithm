@@ -25,7 +25,7 @@ int main() {
         vector and bound
     */
     v.insert(v.end(), a, a + ((sizeof(a)) /sizeof(int)));
-    int x = 2;
+    int x = 5; // 2 3 5
     int c = (int)(upper_bound(v.begin(), v.end(), x) - lower_bound(v.begin(), v.end(),x));
     cout << c << "\n";
     int f = (int)(lower_bound(v.begin(), v.end(), x) - v.begin());

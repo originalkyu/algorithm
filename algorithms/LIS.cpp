@@ -98,9 +98,12 @@ int main() {
     len = 0;
     for(int i=0; i<n; i++) {
         cin >> num;
-        auto lowerPos = lower_bound(lis, lis+len, num); // O(log n), num보다 작거나 같은 값
-        if(*lowerPos == 0) len++;
-        *lowerPos = num; // 주의 : 이터레이터는 포인터가 아님. *가 오버로딩 되어 있어 포인터처럼 쓸 수 있는 것.
+        auto lowerPos = lower_bound(lis, lis+len, num); // O(log n), num 이상의 값의 첫 위치
+        // *lowerPos 는 최초의 num 이상의 값의 위치: 없다면 end() 위치의 값 반환
+        if(*lowerPos == 0) len++; 
+        cout << *lowerPos << "\n";
+        *lowerPos = num; // *lowerPos의 값을 바꿈
+            // 주의 : 이터레이터는 포인터가 아님. *가 오버로딩 되어 있어 포인터처럼 쓸 수 있는 것.
         for(int j=0; j<n; j++) {
             cout << lis[j] << " ";
         }
@@ -112,6 +115,7 @@ int main() {
 6
 10 20 10 30 20 50
 
-{10, 20, 10, 30, 20, 50}
+{10}
+{10,20}
 
 */
